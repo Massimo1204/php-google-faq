@@ -1,0 +1,94 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+main {
+    max-width: 900px;
+    margin: auto;
+    padding: 0 10px;
+}
+
+main h2.title {
+    margin-top: 80px;
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: rgb(73, 72, 72);
+    line-height: 1.8rem;
+}
+
+main p.answer {
+    margin: 30px 0;
+    font-size: 0.8rem;
+    line-height: 1.3rem;
+}
+
+header {
+    height: 85px;
+    padding: 20px 20px 0 20px;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid rgb(97, 95, 95);
+}
+
+div.header-top{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+img.logo {
+    height: 21px;
+}
+
+img.profile-img {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+}
+
+div.header-top div i {
+    margin: 10px 20px;
+    vertical-align: top;
+}
+
+.title-secondary {
+    font-weight: 500;
+    color: rgb(95, 94, 94);
+    display: inline-block;
+    vertical-align: top;
+}
+
+div.header-bottom nav ul {
+    list-style: none;
+}
+
+div.header-bottom nav ul li{
+    display: inline;
+    margin-right: 30px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: rgb(116, 112, 112);
+    padding-bottom: 7px;
+}
+
+div.header-bottom nav ul li.active {
+    color: rgb(31, 118, 231);
+    border-bottom: 3px solid rgb(31, 118, 231);
+}
+ol {
+    list-style-position: inside;
+    font-size: inherit;
+}
+ol.inner-list {
+    padding-left: 40px;
+}
+
+* a {
+    text-decoration: none;
+}

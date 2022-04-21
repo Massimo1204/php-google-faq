@@ -19,11 +19,14 @@
         ],
         [
             'question' => "Perché il mio account è associato a un paese?",
-            'answer' => ["Il tuo account è associato a un paese (o territorio) nei Termini di servizio per poter stabilire due cose:","La società consociata Google che offre i servizi, tratta le tue informazioni ed è responsabile del rispetto delle leggi sulla privacy vigenti. Generalmente Google offre i propri servizi per i consumatori tramite una delle due società seguenti:",
-            'subanswer' => ["Google Ireland Limited, se gli utenti sono residenti nello Spazio economico europeo (paesi dell'Unione europea, oltre a Islanda, Liechtenstein e Norvegia) o in Svizzera.",
-            "Google LLC, con sede negli Stati Uniti, per il resto del mondo."],
-            "La versione dei termini che regola il nostro rapporto, che può variare in base alle leggi locali.",
-            "Tieni presente che i servizi Google sono fondamentalmente gli stessi a prescindere dalla società consociata che li offre o dal paese a cui è associato il tuo account."],
+            'answer' => [
+            "Il tuo account è associato a un paese (o territorio) nei Termini di servizio per poter stabilire due cose:",
+            "<ol><li>La società consociata Google che offre i servizi, tratta le tue informazioni ed è responsabile del rispetto delle leggi sulla privacy vigenti. Generalmente Google offre i propri servizi per i consumatori tramite una delle due società seguenti:
+            <ol class='inner-list' type='a'><li>Google Ireland Limited, se gli utenti sono residenti nello Spazio economico europeo (paesi dell'Unione europea, oltre a Islanda, Liechtenstein e Norvegia) o in Svizzera.</li>
+            <li>Google LLC, con sede negli Stati Uniti, per il resto del mondo.</li></ol></li>
+            <li>La versione dei termini che regola il nostro rapporto, che può variare in base alle leggi locali.</li></ol>",
+            "Tieni presente che i servizi Google sono fondamentalmente gli stessi a prescindere dalla società consociata che li offre o dal paese a cui è associato il tuo account."
+            ],
         ],
         [
             'question' => "Stabilire il paese associato al tuo account",
@@ -40,6 +43,29 @@
             'answer' => ["In alcuni casi sì. Quando fai clic su un risultato della Ricerca Google, il tuo browser web potrebbe reindirizzare alla pagina web di destinazione anche l'indirizzo Internet, o URL, della pagina dei risultati di ricerca sotto forma di <a href='https://www.google.it/'>URL referrer</a>. Talvolta, l'URL della pagina dei risultati di ricerca potrebbe contenere la query di ricerca che hai inserito. Se utilizzi la ricerca SSL (la funzione di ricerca criptata di Google), nella maggior parte dei casi i termini di ricerca non vengono inviati come parte dell'URL negli URL referrer. Questo comportamento può fare eccezione, ad esempio se utilizzi alcuni browser meno diffusi. Ulteriori informazioni sulla ricerca SSL sono disponibili <a href='https://www.google.it/'>qui</a>. Le query di ricerca o le informazioni contenute nell'URL referrer potrebbero essere disponibili mediante Google Analytics o un'API (Application Programming Interface). Inoltre, gli inserzionisti potrebbero ricevere informazioni relative all' esatte parole chiave che hanno determinato il clic su un annuncio."],
         ],
     ];
+
+    $nav = [
+        [
+            "name" => "Introduzione",
+            "state" => false,
+        ],
+        [
+            "name" => "Norme sulla privacy",
+            "state" => false,
+        ],
+        [
+            "name" => "Termini di servizio",
+            "state" => false,
+        ],
+        [
+            "name" => "Tecnologie",
+            "state" => false,
+        ],
+        [
+            "name" => "Domande frequenti",
+            "state" => true,
+        ],
+    ];
 ?>
 
 <!DOCTYPE html>
@@ -48,22 +74,57 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="style.css">
+
     <title>Domande frequenti</title>
 </head>
 <body>
-    <header></header>
+    <header>
+        <div class="header-top">
+            <div>
+                <img class="logo" src="https://purepng.com/public/uploads/large/purepng.com-google-logo-2015brandlogobrand-logoiconssymbolslogosgoogle-6815229372333mqrr.png" alt="google logo">
+                <h3 class="title-secondary">Privacy e termini</h3>
+            </div>
+            <div>
+                <i class="fas fa-border-all"></i>
+                <img class="profile-img" src="https://cdn.dribbble.com/users/2364329/screenshots/5930135/aa.jpg" alt="profile image">
+            </div>
+        </div>
+        <div class="header-bottom">
+            <nav>
+                <ul>
+                    <?php 
+                        foreach($nav as $el){
+                            ?>
+                            <li class="<?php if($el['state']){
+                                echo "active"; } ?>">
+                                <?php echo $el['name']; ?>
+                                </li>
+                            <?php
+                        }
+                    ?>
+                </ul>
+            </nav>
+        </div>
+    </header>
     <main>
         <?php
             foreach($faq as $faq){
                 ?>
-                <h2><?php echo $faq['question']?></h2>
+                <h2 class="title"><?php echo $faq['question']?></h2>
                 <?php
                     foreach($faq['answer'] as $answer){
-                        ?>
-                        <p class="answer"> <?php echo $answer ?></p>
+                            ?>
+                            <p class="answer"> <?php echo $answer ?></p>
                         <?php
-                    }
+                        }
             }
         ?>
     </main>
