@@ -8,3 +8,7 @@ main {
     max-width: 1000px;
     margin: auto;
 }
+
+main p.answer {
+    margin: 30px 0;
+}
