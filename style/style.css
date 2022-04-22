@@ -11,7 +11,7 @@ body {
 main {
     max-width: 900px;
     margin: auto;
-    padding: 0 10px;
+    padding: 80px 10px;
 }
 
 main h2.title {
@@ -22,10 +22,11 @@ main h2.title {
     line-height: 1.8rem;
 }
 
-main p.answer {
-    margin: 30px 0;
+main .answer {
+    margin-bottom: 30px;
     font-size: 0.8rem;
     line-height: 1.3rem;
+    font-weight: 500;
 }
 
 header {
@@ -34,16 +35,18 @@ header {
     display: flex;
     flex-direction: column;
     border-bottom: 1px solid rgb(97, 95, 95);
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    right: 0;
+    width: 100%;
+    background-color: white;
 }
 
 div.header-top{
     display: flex;
     justify-content: space-between;
     width: 100%;
-}
-
-img.logo {
-    height: 21px;
 }
 
 img.profile-img {
@@ -59,7 +62,7 @@ div.header-top div i {
 
 .title-secondary {
     font-weight: 500;
-    color: rgb(95, 94, 94);
+    color: rgb(77, 75, 75);
     display: inline-block;
     vertical-align: top;
 }
@@ -83,10 +86,14 @@ div.header-bottom nav ul li.active {
 }
 ol {
     list-style-position: inside;
-    font-size: inherit;
 }
+
 ol.inner-list {
     padding-left: 40px;
+}
+
+ol.inner-list li {
+    margin: 20px 0;
 }
 
 * a {
